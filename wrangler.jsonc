@@ -1,0 +1,15 @@
+{
+  // Cloudflare Workers static-assets deploy for the Next.js static export.
+  // No Worker script (`main`) — this is an assets-only project.
+  "name": "portfolio",
+  "compatibility_date": "2026-08-03",
+  "assets": {
+    // Next.js `output: "export"` writes the static site here.
+    "directory": "./out",
+    // Next generates a styled 404.html; serve it (with a 404 status) for any
+    // path that doesn't match a static asset. The app isn't a client-routed
+    // SPA — it lives at "/" — so "single-page-application" handling would wrongly
+    // mask real 404s.
+    "not_found_handling": "404-page"
+  }
+}
