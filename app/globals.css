@@ -1,0 +1,93 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/*
+ * Design tokens. The single source of truth for color is here.
+ * Tailwind (tailwind.config.ts) reads these variables by name.
+ * Documented in DESIGN_SYSTEM.md.
+ */
+:root {
+  /* Surfaces - warm, paper-like neutrals */
+  --canvas: #faf9f7;
+  --surface: #ffffff;
+  --surface-raised: #ffffff;
+
+  /* Hairlines */
+  --line: #ecebe6;
+  --line-strong: #e2e0da;
+
+  /* Ink - a single hue stepped down in contrast */
+  --ink: #18191b;
+  --ink-secondary: #56585e;
+  --ink-tertiary: #85888f;
+  --ink-faint: #a9acb2;
+
+  /* Category accents - used sparingly, one per branch */
+  --accent-exp: #2f6ded;
+  --accent-ai: #15925a;
+  --accent-product: #7c3aed;
+
+  /* Outcome semantics for experiment cards */
+  --status-win: #15864a;
+  --status-near: #b7822b;
+  --status-flat: #7d808780;
+
+  --focus-ring: rgba(47, 109, 237, 0.32);
+
+  color-scheme: light;
+}
+
+* {
+  border-color: var(--line);
+}
+
+html {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  background-color: var(--canvas);
+  color: var(--ink);
+  font-variant-ligatures: contextual;
+}
+
+/* Uppercase micro-labels used throughout the UI (eyebrows, section kickers) */
+.label-eyebrow {
+  font-size: 11px;
+  line-height: 1;
+  letter-spacing: 0.11em;
+  text-transform: uppercase;
+  font-weight: 570;
+}
+
+/* Thin, elegant scrollbars */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--line-strong);
+  border-radius: 999px;
+  border: 3px solid var(--canvas);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--ink-faint);
+}
+
+/* Respect reduced-motion preferences globally */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
+
+::selection {
+  background: rgba(47, 109, 237, 0.14);
+}
