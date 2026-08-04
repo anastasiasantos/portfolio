@@ -355,7 +355,7 @@ const skinLab: Node = {
       },
     ],
     scoringNote:
-      "A per-dimension risk score, with a deliberate 0-versus-null distinction: 0 means assessed with no signal, null means not applicable or not enough basis to score.",
+      "A per-dimension risk score - with a clear difference between a scored zero (assessed, no concern) and no score at all (not applicable, or not enough basis to judge).",
     flaggedNote:
       "Deterministic thresholds turn scores into risk colors and gauges, and surface higher-scoring ingredients as offenders for that dimension.",
 
@@ -398,7 +398,7 @@ const skinLab: Node = {
     qualityControls: [
       "A fixed JSON schema embedded in the prompt",
       "A closed enum for the overall verdict",
-      "Explicit 0-versus-null scoring semantics",
+      "A deliberate line between a scored zero (assessed, no concern) and no score (couldn't assess)",
       "JSON-only instructions in both the system and user messages",
       "Client-side code-fence stripping",
       "Defensive rendering for missing fields",
