@@ -292,8 +292,6 @@ export interface SkinLab {
   // Overview
   /** Overview: 3-5 concise supporting bullets under the executive summary. */
   capabilities: string[];
-  /** Clarifies the AI is ingredient-only; the rest works offline; no photos. */
-  aiFocusNote: string;
   // The Problem
   /** The Problem: one concise paragraph (weakness of one-number tools). */
   problemLead: string;

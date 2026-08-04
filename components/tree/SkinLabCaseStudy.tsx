@@ -635,9 +635,6 @@ export function SkinLabCaseStudy({
         <p className="mt-4 text-[15px] leading-[1.7] text-ink-secondary">
           {s.aiStrategy}
         </p>
-        <p className="mt-3 text-[14.5px] leading-[1.6] text-ink-tertiary">
-          {s.aiFocusNote}
-        </p>
 
         {/* The six-dimension reasoning model (signature visual) */}
         <div className="mt-8">

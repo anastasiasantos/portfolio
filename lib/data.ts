@@ -304,9 +304,6 @@ const skinLab: Node = {
       "Works offline; only ingredient analysis needs connectivity",
       "Scores are AI judgments to guide research - not medical advice",
     ],
-    aiFocusNote:
-      "The AI capability is focused specifically on ingredient analysis. Everything else - tracking, analytics, history, the product library - stays fully functional offline, without AI. Skin Lab does not analyze skin photographs; image-based skin analysis is not implemented.",
-
     problemLead:
       "Most ingredient checkers reduce acne risk to a single comedogenic number - but breakouts can stem from several different mechanisms, so one score hides more than it reveals. A one-dimensional rating simply can't say how a product interacts with the different pathways behind acne, which is the question people actually have.",
     reframeFrom: "Is this ingredient pore-clogging?",
