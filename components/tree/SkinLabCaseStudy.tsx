@@ -173,19 +173,16 @@ function FlowDown() {
 /**
  * SIGNATURE VISUAL - the six-dimension reasoning model. A single AI analysis
  * fans into six parallel dimensions (a selectable grid); picking one reveals
- * what it evaluates, the shared scoring semantics, and how flagged ingredients
- * surface. The flow then converges to a rule-based risk profile → rendering →
- * decision support. Restrained: one click-to-select interaction, no motion.
+ * what that dimension evaluates. The shared scoring semantics (global to all
+ * six) live in a single "How scoring works" block below the figure, not
+ * repeated per dimension. The flow then converges to a rule-based risk profile
+ * → rendering → decision support. Restrained: one click-to-select, no motion.
  */
 function SixDimensionModel({
   dims,
-  scoringNote,
-  flaggedNote,
   accent,
 }: {
   dims: SkinLabDimension[];
-  scoringNote: string;
-  flaggedNote: string;
   accent: Accent;
 }) {
   const [sel, setSel] = useState(0);
@@ -251,20 +248,6 @@ function SixDimensionModel({
         <p className="mt-2.5 text-[14.5px] leading-[1.6] text-ink">
           {d.evaluates}
         </p>
-        <div className="mt-4 grid gap-4 sm:grid-cols-2">
-          <div>
-            <SubLabel>Score</SubLabel>
-            <p className="mt-1.5 text-[13.5px] leading-[1.55] text-ink-secondary">
-              {scoringNote}
-            </p>
-          </div>
-          <div>
-            <SubLabel>How it&apos;s surfaced</SubLabel>
-            <p className="mt-1.5 text-[13.5px] leading-[1.55] text-ink-secondary">
-              {flaggedNote}
-            </p>
-          </div>
-        </div>
       </div>
 
       <FlowDown />
@@ -639,12 +622,34 @@ export function SkinLabCaseStudy({
         {/* The six-dimension reasoning model (signature visual) */}
         <div className="mt-8">
           <SubLabel>The reasoning model</SubLabel>
-          <SixDimensionModel
-            dims={s.dimensions}
-            scoringNote={s.scoringNote}
-            flaggedNote={s.flaggedNote}
-            accent={accent}
-          />
+          <SixDimensionModel dims={s.dimensions} accent={accent} />
+        </div>
+
+        {/* Shared scoring methodology - stated once. It's global to all six
+            dimensions (identical for each), so it lives here rather than
+            duplicated inside every per-dimension panel. */}
+        <div className="mt-8">
+          <SubLabel>How scoring works</SubLabel>
+          <div
+            className={cn(
+              "mt-4 grid gap-4 rounded-node border p-5 shadow-card sm:grid-cols-2",
+              a.softBorder,
+              a.softBg,
+            )}
+          >
+            <div>
+              <SubLabel>Score</SubLabel>
+              <p className="mt-1.5 text-[13.5px] leading-[1.55] text-ink-secondary">
+                {s.scoringNote}
+              </p>
+            </div>
+            <div>
+              <SubLabel>How it&apos;s surfaced</SubLabel>
+              <p className="mt-1.5 text-[13.5px] leading-[1.55] text-ink-secondary">
+                {s.flaggedNote}
+              </p>
+            </div>
+          </div>
         </div>
 
         {/* Who owns what - AI vs. code + the boundary principle */}
